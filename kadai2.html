@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div class="layer-wrap">
+    <canvas id="line" width="1980" height="1280"></canvas>
+  
+    </div>
+    <script type="text/javascript">
+    //読み込み時に実行する
+   
+    onload = function() {
+      /* 線を引く */
+      let line_canvas = document.getElementById("line"); 
+      let line_ctx = line_canvas.getContext("2d");
+      line_ctx.beginPath();
+      // 開始位置に移動する
+      for (let i =50;i<1300; i+=150){
+      line_ctx.moveTo(50,i);
+      // 線を引く
+      line_ctx.lineTo(1250, i);
+      line_ctx.closePath();
+      line_ctx.stroke();
+      }
+      for (let i =50;i<1300; i+=150){
+        line_ctx.moveTo(i, 50);
+      line_ctx.lineTo(i, 1250);
+      line_ctx.closePath();
+      line_ctx.stroke();
+      }
+      line_ctx.beginPath();
+      line_ctx.arc(570,730,50, 0, Math.PI * 2, false);
+      line_ctx.fillStyle = 'blacck';
+      line_ctx.fill();
+      line_ctx.beginPath();
+      line_ctx.arc(730,570,50, 0, Math.PI * 2, false);
+      line_ctx.fillStyle = 'blacck';
+      line_ctx.fill();
+      line_ctx.beginPath();
+      line_ctx.arc(570,570,50, 0, Math.PI * 2, false);
+      line_ctx.Style = 'blacck';
+      line_ctx.stroke();
+      line_ctx.beginPath();
+      line_ctx.arc(730,730,50, 0, Math.PI * 2, false);
+      line_ctx.fillStyle = 'blacck';
+      line_ctx.fill();
+    }
+  
+
+    function onClick(e) {
+  var x = e.pageX;
+  var y = e.pageY;
+  console.log("x座標 : " + x);
+  console.log( "y座標 : " + y);
+  
+      }
+      
+      line.addEventListener('click', onClick, false);
+
+    </script>
+  </body>
+</html>
